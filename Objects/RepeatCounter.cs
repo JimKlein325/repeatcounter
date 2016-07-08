@@ -65,6 +65,18 @@ namespace RepeatCounter
       else
       {
         if (sentenceChars[indexOfMatch - 1] == ' ') beginsLikeAWord = true;
+
+        int precedingCharIndex = indexOfMatch - 1;
+        char[] puntuation = new char[] { '"', '\'', '(',  '-' };
+        foreach (char c in puntuation)
+        {
+          char precedingChar = sentenceChars[precedingCharIndex];
+          if (c == precedingChar)
+          {
+            beginsLikeAWord = true;
+            break;
+          }
+        }
       }
 
       if (sentenceChars.Length == indexOfMatch + word.Length)
@@ -74,7 +86,7 @@ namespace RepeatCounter
       else
       {
         int subsequentCharIndex = indexOfMatch + word.Length;
-        char[] puntuation = new char[] {' ', '.', ',', '"', '\'', '?', '!', '-' };
+        char[] puntuation = new char[] {' ', '.', ',', '"', '\'', '?', '!', '-', ')' };
         foreach (char c in puntuation)
         {
           char followingChar = sentenceChars[subsequentCharIndex];

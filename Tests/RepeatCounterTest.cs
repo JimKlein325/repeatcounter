@@ -50,6 +50,26 @@ namespace RepeatCounter
       //Assert
       Assert.Equal(3, result);
     }
+    [Fact]
+    public void CountOccurrences_ForSearchWordFollowedByPuctuation_9()
+    {
+      //Arrange
+      Counter counter = new Counter();
+      //Act
+      int result = counter.CountOccurrences("The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) ","dog");
+      //Assert
+      Assert.Equal(9, result);
+    }
+    [Fact]
+    public void CountOccurrences_ForSearchWordPrecededByPuctuation_4()
+    {
+      //Arrange
+      Counter counter = new Counter();
+      //Act
+      int result = counter.CountOccurrences("The red fox chased the brown \"dog.\" 'dog -dog (dog.","dog");
+      //Assert
+      Assert.Equal(4, result);
+    }
 
 
 
