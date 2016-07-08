@@ -17,6 +17,11 @@ namespace RepeatCounter
       if (inputSentence.Contains(wordToMatch))
       {
         counter++;
+        int index = inputSentence.IndexOf(wordToMatch);
+        int wordLength = wordToMatch.Length;
+        int charsToRemove = index + wordLength;
+        string truncatedString = inputSentence.Remove(0,charsToRemove) ;
+        counter += CountOccurrences(truncatedString, wordToMatch);
       }
       return counter;
     }
