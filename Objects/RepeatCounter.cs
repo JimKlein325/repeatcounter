@@ -7,8 +7,21 @@ namespace RepeatCounter
 {
   public class Counter
   {
-    public string SearchableString {get; set;}
+    string _searchableString;
+    public string SearchableString
+    {
+      get
+      {
+        return this._searchableString;
+      }
+      set
+      {
+        if(_searchableString == null) this._searchableString = value;
+      }
+    }
+
     public string SearchWord {get; set;}
+    public string Occurrences {get;set;}
 
     public Counter()
     {
@@ -34,6 +47,7 @@ namespace RepeatCounter
           counter += CountOccurrences(truncatedString, word);
         }
       }
+      this.Occurrences = counter.ToString();
       return counter;
     }
 

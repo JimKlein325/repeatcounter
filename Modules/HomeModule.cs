@@ -13,8 +13,13 @@ namespace RepeatCounter
 
         return View["index.cshtml"];
       };
-
-
+      Post["/find"] = _ => {
+        var counter = new Counter();
+        string inputSentence =  Request.Form["searchPhrase"];
+        string wordToMatch = Request.Form["word"];
+        int result = counter.CountOccurrences(inputSentence, wordToMatch);
+        return View["result.cshtml", counter];
+      };
     }
   }
 }
