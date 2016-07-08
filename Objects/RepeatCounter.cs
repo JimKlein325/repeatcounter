@@ -14,17 +14,58 @@ namespace RepeatCounter
     public int CountOccurrences(string inputSentence, string wordToMatch)
     {
       int counter = 0;
-      if (inputSentence.Contains(wordToMatch))
+      string word = wordToMatch.ToLower();
+      string sentence = inputSentence.ToLower();
+      if (sentence.Contains(word))
       {
-        counter++;
-        int index = inputSentence.IndexOf(wordToMatch);
-        int wordLength = wordToMatch.Length;
-        int charsToRemove = index + wordLength;
-        string truncatedString = inputSentence.Remove(0,charsToRemove) ;
-        counter += CountOccurrences(truncatedString, wordToMatch);
+        int index = sentence.IndexOf(word);
+        if (IsNotSubstring(sentence, word, index))
+        {
+          counter++;
+          int wordLength = word.Length;
+          int charsToRemove = index + wordLength;
+          string truncatedString = sentence.Remove(0, charsToRemove);
+          counter += CountOccurrences(truncatedString, word);
+        }
       }
       return counter;
     }
-  }
 
+    private bool IsNotSubstring(string sentence, string word, int indexOfMatch)
+    {
+      char[] sentenceChars = sentence.ToCharArray();
+
+      bool beginsLikeAWord = false;
+      bool endsLikeAWord = false;
+
+      if (indexOfMatch == 0)
+      {
+        beginsLikeAWord = true;
+      }
+      else
+      {
+        if (sentenceChars[indexOfMatch - 1] == ' ') beginsLikeAWord = true;
+      }
+
+      if (sentenceChars.Length == indexOfMatch + word.Length)
+      {
+        endsLikeAWord = true;
+      }
+      else
+      {
+        int subsequentCharIndex = indexOfMatch + word.Length;
+        char[] puntuation = new char[] {' ', '.', ',', '"', '\'', '?', '!', '-' };
+        foreach (char c in puntuation)
+        {
+          char followingChar = sentenceChars[subsequentCharIndex];
+          if (c == followingChar)
+          {
+            endsLikeAWord = true;
+            break;
+          }
+        }
+      }
+      return beginsLikeAWord && endsLikeAWord;
+    }
+  }
 }
