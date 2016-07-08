@@ -10,7 +10,8 @@ Address Book is a sample application for demonstrating basic proficiency in crea
 
 A user can enter contact information and build a list of contacts that are displayed as an address book, view contact details, and clear all of the entries in the address book.  
 
-Behavior|inputSentence|inputWord|Output|Remarks
+Behavior           |inputSentence          |inputWord        |Output          |Remarks
+------------------ | --------------------- |-----------------|----------------|--------------|
 Match at least one occurrence of a string|The red fox chased the brown dog.|the|1|This is a simple sentence with multiple occurrences of search string.
 Match case sensitive occurences of a string.|The red fox chased the brown dog.|the|1|This sentence has a single example of the word with differing capitalizaiton.
 Match all occurences of chars in string.|The red fox chased the brown dog.|the|2|ditto
