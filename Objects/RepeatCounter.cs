@@ -7,12 +7,18 @@ namespace RepeatCounter
 {
   public class Counter
   {
+    public string SearchableString {get; set;}
+    public string SearchWord {get; set;}
+
     public Counter()
     {
     }
 
     public int CountOccurrences(string inputSentence, string wordToMatch)
     {
+      this.SearchableString = inputSentence;
+      this.SearchWord = wordToMatch;
+
       int counter = 0;
       string word = wordToMatch.ToLower();
       string sentence = inputSentence.ToLower();

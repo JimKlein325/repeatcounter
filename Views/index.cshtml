@@ -1,25 +1,19 @@
-<h1>Rock Scissors Paper!</h1>
-
-<form action="/" method="Post">
-<div class="radio">
-  <label>
-    <input type="radio" name="RockScissors" value="0" checked>
-    Rock
-  </label>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href= "Content/pet_form.css" rel="stylesheet" type="text/css">
+<title>Repeat Counter</title>
+</head>
+<div class = "container">
+  <h1 class= "text-center">Repeat Counter</h1>
+  <form action="/Find" method="post">
+    <div class = "form-group">
+      <label for="searchPhrase">Phrase or Sentence to Search</label>
+     <textarea class = "form-control" rows="3"  id="searchPhrase" name="searchPhrase">The red fox chased the brown dog.</textarea>
+    </div>
+    <div class = "form-group">
+      <label for="word" id="word-label">Word to Find</label>
+      <input class = "form-control"  id="word" name="word" type="text" value="the">
+    </div>
+    <button type="submit"  class="btn btn-default center-block" >Count Occurrences of My Word!</button>
+  </form>
 </div>
-<div class="radio">
-  <label>
-    <input type="radio" name="RockScissors" value="1">
-    Paper
-  </label>
-</div>
-<div class="radio">
-  <label>
-    <input type="radio" name="RockScissors" value="2">
-    Scissors
-  </label>
-</div>
-  <button type="submit" name="button">Play</button>
-</form>
-
-}
