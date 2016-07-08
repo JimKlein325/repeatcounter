@@ -1,7 +1,7 @@
 using Nancy;
 using System.Collections.Generic;
 using System;
-using RepeatCounter.Objects;
+using RepeatCounter;
 
 namespace RepeatCounter
 {
