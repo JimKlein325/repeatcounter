@@ -1,14 +1,16 @@
-# Address Book
+# Repeat Finder
 
-#### C# skill demonstration project:  Week 1 - July, 2016
+#### C# skill demonstration project:  Week 2 - July, 2016
 
 #### By Jim Klein
 
 ## Description
 
-Address Book is a sample application for demonstrating basic proficiency in creating simple web apps using Nancy, Razor and related technologies.
+Repeat Finder is a sample application for demonstrating basic proficiency in BDD coding techniques and creating simple web apps using Nancy, Razor and related technologies.
 
-A user can enter contact information and build a list of contacts that are displayed as an address book, view contact details, and clear all of the entries in the address book.  
+A user can enter a sentence and a word to find and receives a count of the occurrences of that word in the input sentence.
+
+##BDD Notes
 
 Behavior           |inputSentence          |inputWord        |Output          |Remarks
 ------------------ | --------------------- |-----------------|----------------|--------------|
@@ -18,8 +20,8 @@ Match all occurences of chars in string.|The red fox chased the brown dog.|the|2
 Match only full word occurrences of a string: case insensitive match of string preceded by a space and followed by a space or a punctuation mark character.|The red fox chased the brown dog through the heather.|the|3|This sentence adds an occurrence of the word characters within another word.
 
 ## Setup/Installation Requirements
-* Install Address Book by cloning this repository:
-    https://github.com/JimKlein325/addressbook.git
+* Install this project by cloning this repository:
+    https://github.com/JimKlein325/repeatcounter.git
 * Compile using the PowerShell "dnx kestrel" command in the project directory
 * View the app in your browser at "localhost:5004"
 
