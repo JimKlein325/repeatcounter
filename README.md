@@ -19,7 +19,7 @@ Match case sensitive occurences of a string.|The red fox chased the brown dog th
 Match all occurences of letters in string, regardless of capitalizaiton.|The red fox chased the brown dog.|the|2|ditto
 Match only full word occurrences of a string: case insensitive match of string preceded by a space and followed by a space or a punctuation mark character.|The red fox chased the brown dog through the heather.|the|3|This sentence adds an occurrence of the word characters within another word.
 Match word when preceded by punctuation.|The red fox chased the brown \"dog.\" 'dog -dog (dog.|dog|4|This sentence contains simple examples for each of the supported punctuation marks.
-Match word when followed by punctuation.|The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) |dog|4|This sentence contains simple examples for each of the supported punctuation marks.
+Match word when followed by punctuation.|The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) |dog|9|This sentence contains simple examples for each of the supported punctuation marks.
 
 ## Setup/Installation Requirements
 * Install this project by cloning this repository:
