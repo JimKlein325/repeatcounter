@@ -1,24 +1,24 @@
 using Nancy;
 using System.Collections.Generic;
 using System;
-using RepeatCounter;
+using Repeat_Counter.Objects;
 
-namespace RepeatCounter
+namespace Repeat_Counter
 {
   public class HomeModule : NancyModule
   {
     public HomeModule()
     {
       Get["/"] = _ => {
-
         return View["index.cshtml"];
       };
+      
       Post["/find"] = _ => {
-        var counter = new Counter();
+        var repeatCounter = new RepeatCounter();
         string inputSentence =  Request.Form["searchPhrase"];
         string wordToMatch = Request.Form["word"];
-        int result = counter.CountOccurrences(inputSentence, wordToMatch);
-        return View["result.cshtml", counter];
+        int result = repeatCounter.CountRepeats(inputSentence, wordToMatch);
+        return View["result.cshtml", repeatCounter];
       };
     }
   }

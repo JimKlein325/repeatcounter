@@ -3,35 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace RepeatCounter
+namespace Repeat_Counter.Objects
 {
-  public class Counter
+  public class RepeatCounter
   {
-    string _searchableString;
-    public string SearchableString
+    public int CountRepeats(string inputSentence, string wordToMatch)
     {
-      get
-      {
-        return this._searchableString;
-      }
-      set
-      {
-        if(_searchableString == null) this._searchableString = value;
-      }
-    }
-
-    public string SearchWord {get; set;}
-    public string Occurrences {get;set;}
-
-    public Counter()
-    {
-    }
-
-    public int CountOccurrences(string inputSentence, string wordToMatch)
-    {
-      this.SearchableString = inputSentence;
-      this.SearchWord = wordToMatch;
-
       int counter = 0;
       string word = wordToMatch.ToLower();
       string sentence = inputSentence.ToLower();
@@ -44,10 +21,9 @@ namespace RepeatCounter
           int wordLength = word.Length;
           int charsToRemove = index + wordLength;
           string truncatedString = sentence.Remove(0, charsToRemove);
-          counter += CountOccurrences(truncatedString, word);
+          counter += CountRepeats(truncatedString, word);
         }
       }
-      this.Occurrences = counter.ToString();
       return counter;
     }
 
@@ -78,7 +54,6 @@ namespace RepeatCounter
           }
         }
       }
-
       if (sentenceChars.Length == indexOfMatch + word.Length)
       {
         endsLikeAWord = true;

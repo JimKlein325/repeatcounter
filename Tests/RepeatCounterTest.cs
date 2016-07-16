@@ -1,83 +1,91 @@
 using Xunit;
 using System;
-using RepeatCounter;
-//using RepeatCounter.Objects;
+using Repeat_Counter.Objects;
 
-namespace RepeatCounter
+namespace Repeat_Counter
 {
-  // using RepeatCounter.Objects;
-  public class RepeatCounterTest : IDisposable
+  public class RepeatCounterTest
   {
-
     [Fact]
-    public void CountOccurrences_WordThe_2()
+    public void CountRepeats_ForStringWithNoOccurrenceOfWord_0()
     {
       //Arrange
-      Counter counter = new Counter();
+      RepeatCounter repeatCounter = new RepeatCounter();
       //Act
-      int result = counter.CountOccurrences("The red fox chased the brown dog.","the");
+      int result = repeatCounter.CountRepeats("Four score and seven years ago","the");
+      //Assert
+      Assert.Equal(0, result);
+    }
+    [Fact]
+    public void CountRepeats_ForStringThatContainsOnlySearchWord_1()
+    {
+      //Arrange
+      RepeatCounter repeatCounter = new RepeatCounter();
+      //Act
+      int result = repeatCounter.CountRepeats("the","the");
+      //Assert
+      Assert.Equal(1, result);
+    }
+    [Fact]
+    public void CountRepeats_ForStringContainingTwoOccurrencesOfSearchWord_2()
+    {
+      //Arrange
+      RepeatCounter repeatCounter = new RepeatCounter();
+      //Act
+      int result = repeatCounter.CountRepeats("the red fox chased the brown dog","the");
       //Assert
       Assert.Equal(2, result);
     }
-
     [Fact]
-    public void CountOccurrences_WithMultipleInstancesOfInputWord_the_3()
+    public void CountRepeats_CountCaseInsensitiveWithMultipleInstancesOfInputWord_2()
     {
       //Arrange
-      Counter counter = new Counter();
+      RepeatCounter repeatCounter = new RepeatCounter();
       //Act
-      int result = counter.CountOccurrences("The red fox chased the brown dog through the heather.","the");
-      //Assert
-      Assert.Equal(3, result);
-    }
-    [Fact]
-    public void CountOccurrences_CountCaseInsensitiveWithMultipleInstancesOfInputWord_the_2()
-    {
-      //Arrange
-      Counter counter = new Counter();
-      //Act
-      int result = counter.CountOccurrences("The red fox chased the brown dog.","the");
+      int result = repeatCounter.CountRepeats("The red fox chased the brown dog.","the");
       //Assert
       Assert.Equal(2, result);
     }
     [Fact]
-    public void CountOccurrences_CountCaseInsensitiveWithMultipleInstancesOfInputWordTestingNotWithinOtherWord_the_3()
+    public void CountRepeats_ForInstanceOfSearchStringThatOccursWithinAnotherWord_0()
     {
       //Arrange
-      Counter counter = new Counter();
+      RepeatCounter repeatCounter = new RepeatCounter();
       //Act
-      int result = counter.CountOccurrences("The red fox chased the brown dog through the heather.","the");
+      int result = repeatCounter.CountRepeats("heather","the");
       //Assert
-      Assert.Equal(3, result);
+      Assert.Equal(0, result);
+    }
+
+    [Fact]
+    public void CountRepeats_ForStringContainingStandAloneAndInstanceOfSearchStringWithinAnotherWord_1()
+    {
+      //Arrange
+      RepeatCounter repeatCounter = new RepeatCounter();
+      //Act
+      int result = repeatCounter.CountRepeats("the heather.","the");
+      //Assert
+      Assert.Equal(1, result);
     }
     [Fact]
-    public void CountOccurrences_ForSearchWordFollowedByPuctuation_9()
+    public void CountRepeats_ForSearchWordFollowedByPuctuation_9()
     {
       //Arrange
-      Counter counter = new Counter();
+      RepeatCounter repeatCounter = new RepeatCounter();
       //Act
-      int result = counter.CountOccurrences("The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) ","dog");
+      int result = repeatCounter.CountRepeats("The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) ","dog");
       //Assert
       Assert.Equal(9, result);
     }
     [Fact]
-    public void CountOccurrences_ForSearchWordPrecededByPuctuation_4()
+    public void CountRepeats_ForSearchWordPrecededByPuctuation_4()
     {
       //Arrange
-      Counter counter = new Counter();
+      RepeatCounter repeatCounter = new RepeatCounter();
       //Act
-      int result = counter.CountOccurrences("The red fox chased the brown \"dog.\" 'dog -dog (dog.","dog");
+      int result = repeatCounter.CountRepeats("The red fox chased the brown \"dog.\" 'dog -dog (dog.","dog");
       //Assert
       Assert.Equal(4, result);
-    }
-
-
-
-
-
-    public void Dispose()
-    {
-
     }
   }
 }

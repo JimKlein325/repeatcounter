@@ -14,12 +14,15 @@ A user can enter a sentence and a word to find and receives a count of the occur
 
 Behavior           |inputSentence          |inputWord        |Output          |Remarks
 ------------------ | --------------------- |-----------------|----------------|--------------|
-Match at least one occurrence of a string|The red fox chased the brown dog.|the|1|This is a simple sentence with multiple occurrences of search string.
-Match case sensitive occurences of a string.|The red fox chased the brown dog through the heather.|the|3|This sentence has a single example of the word with differing capitalizaiton.
-Match all occurences of letters in string, regardless of capitalizaiton.|The red fox chased the brown dog.|the|2|ditto
-Match only full word occurrences of a string: case insensitive match of string preceded by a space and followed by a space or a punctuation mark character.|The red fox chased the brown dog through the heather.|the|3|This sentence adds an occurrence of the word characters within another word.
-Match word when preceded by punctuation.|The red fox chased the brown \"dog.\" 'dog -dog (dog.|dog|4|This sentence contains simple examples for each of the supported punctuation marks.
-Match word when followed by punctuation.|The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) |dog|9|This sentence contains simple examples for each of the supported punctuation marks.
+Count should be 0 if no occurrence of search word. |Four score and seven years ago.|the|0|This is a simple test of the case where the string does not contain the word.
+Match the word in a search string that contains only the word.|the|the|1|This input has a single example of the word.
+Match all occurrences of letters in string. |the red fox chased the brown dog.|the|2|This sentence has multiple occurrences of the word.
+Match all occurrences of letters in string, regardless of capitalizaiton. |the red fox chased the brown dog.|the|2|This sentence has multiple occurrences of the word with differing capitalizaiton.
+Count should be zero if word occurs within another word. | heather | the | 0 | This is a simple example of the word occurring within another word.
+Match word when preceded by punctuation. |The red fox chased the brown \"dog.\" 'dog -dog (dog.|dog|4|This sentence contains simple examples for each of the supported punctuation marks.
+Match word when followed by punctuation. |The red fox chased the brown dog. dog, dog- dog' dog\" dog\' dog! dog? dog) |dog|9|This sentence contains simple examples for each of the supported punctuation marks.
+Match only full word occurrences of a string: case insensitive match of string preceded by a space and followed by a space or a punctuation mark character. |The red fox chased the brown dog through the heather.|the|3|This sentence adds an occurrence of the word characters within another word.
+
 
 ## Setup/Installation Requirements
 * Install this project by cloning this repository:
